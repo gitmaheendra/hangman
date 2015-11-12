@@ -15,11 +15,21 @@ def select_word(word_list):
 
 
 def play_hangman(secret_word):
-      
     #homework
-    print secret_word
+    
     for letter in secret_word:
         print "*",
+    i=0
+    while(i< len(secret_word)):
+        n = raw_input("Guess the letter \t ")
+        for letter in secret_word:
+            if (n==letter):
+                print letter,
+            else:
+                print "*",
+               
+        i+=1
+    
 
 
 wordlist = get_wordlist()
