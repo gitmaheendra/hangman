@@ -1,6 +1,6 @@
 import random
 
-def get_wordlist()
+def get_wordlist():
     f=open("/usr/share/dict/words")
     clean_words = []
     for i in f:
@@ -15,8 +15,11 @@ def select_word(word_list):
 
 
 def play_hangman(secret_word):
-    
+      
     #homework
+    print secret_word
+    for letter in secret_word:
+        print "*",
 
 
 wordlist = get_wordlist()
