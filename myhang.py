@@ -15,37 +15,30 @@ def select_word(word_list):
 
 
 def play_hangman(secret_word):
-    #homework
-    
     print secret_word
     for letter in secret_word:
         print "*",
-    j=0
     i=0
-    
     leng = len(secret_word)
-    
     wordry = ["*"]*leng
     k=0
-         
     while(i< leng):
-        print "\nU hav %r chances left " % (leng-i)
-        n = raw_input("Guess the letter \t ")
-           
+        n =raw_input("\nGuess the letter \t ")
         for letter in secret_word:
             if (n==letter):
                 wordry[k]=letter
-            else:
-                wordry[k]= '*'
+                      
             k=k+1
-            
+        k=0            
         for letter in wordry:
-            print letter,       
-        i=i+1 
+            print letter,
+        print "\none life gone.. %r more !\n" % (leng-i)
+        i=i+1
 
 
 wordlist = get_wordlist()
 secret_word = select_word(wordlist)
 play_hangman(secret_word)
+print "The secret word is %r" % secret_word
     
     
