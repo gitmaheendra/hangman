@@ -15,8 +15,7 @@ def select_word(word_list):
     return random.sample(wordlist,1)[0]
 
 def printstar():
-     print secret_word
-     for letter in secret_word:
+    for letter in secret_word:
         print "*",
 
 
@@ -25,36 +24,41 @@ def play_hangman(secret_word):
     leng = len(secret_word)
     word_array = ["*"]*leng
     k=0
-    c_w= ["0"]*leng
-    c_guess=0
+    corrctlettrs=0
     w_guess=0
     error=0
     
     while(w_guess<=10):
         n =raw_input("\nGuess the letter \t ")
+
         for letter in secret_word:
             if (n==letter):
                 word_array[k]=letter
+                corrctlettrs+=1
             else:
                 error=error+1
             k=k+1
-            
-            
+        
         k=0
+
         for letter in word_array:
             print letter,
        
         if error==leng:
             w_guess+=1
             print "\nWrong Guess"
-        else:
-            c_guess+=1
+
         i=i+1
         error=0
+        
         if w_guess>9:
             print "Game Over"
             print "The secret word is %r" % secret_word
             break;
+        elif corrctlettrs==leng:
+            print "\nYou found it !!"
+            break;
+        
          
 
 wordlist = get_wordlist()
